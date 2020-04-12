@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generator</title>
+
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="onInit()">
+
+    <nav class="nav-container container">
+        <img class="logo" src="icons/logo.png" />
+        <ul class="nav">
+            <li class="nav-gallery" onclick="onGetGalleryPage()">Gallery</li>
+
+        </ul>
+    </nav>
+
+    <div class="main-container container">
+        <div class="gallery-container"></div>
+    </div>
+
+    <div class="side-container container">
+        <div class="meme-container"></div>
+    </div>
+
+    <div class="canvas-container container">
+        <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;"></canvas>
+        <div class="meme-control">
+            <input type="text" class="control-txt-input" value="" onkeyup="onChangeText(value)">
+            <div class="btn-group1">
+                <button class="control-btn" onclick="onSwitchLines()"><img
+                        src="icons/switch.png" /></button>
+                <button class="control-btn" onclick="onAddLine()"><img
+                        src="icons/add.png" /></button>
+                <button class="control-btn" onclick="onDeleteLine()"><img
+                        src="icons/trash.png" /></button>
+            </div>
+            <button class="control-btn" onclick="onChangeSize(1)"><img
+                    src="icons/increase-font.png" /></button>
+            <button class="control-btn" onclick="onChangeSize(-1)"><img
+                    src="icons/decrease-font.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('right')"><img
+                    src="icons/align-to-left.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('center')"><img src="icons/align-center.png" /></button>
+            <button class="control-btn" onclick="onChangeAlign('left')"><img src="icons/align-to-right.png" /></button>
+            <select class="control-select" onchange="onChangeFont(value)">
+                <option>Impact</option>
+                <option>Montserrat</option>
+            </select>
+            <button class="control-btn"><input class="control-color-input" type="color"
+                    onchange="onChangeOutlineColor(value)"/><img src="icons/text-stroke.png"></button>
+            <button class="control-btn"><input class="control-color-input" type="color"
+                    onchange="onChangeFillColor(value)"/><img
+                    src="icons/paint-board-and-brush.png"></button>
+
+        </div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/memegallery-controller.js"></script>
+    <script src="js/memeeditor-controller.js"></script>
+</body>
+
+</html>
