@@ -25,10 +25,6 @@
         <div class="gallery-container"></div>
     </div>
 
-    <div class="side-container container">
-        <div class="meme-container"></div>
-    </div>
-
     <div class="canvas-container container">
         <canvas id="meme-canvas" height="450" width="450" style="border: 1px solid black;"></canvas>
         <div class="meme-control">
@@ -58,7 +54,7 @@
             <button class="control-btn"><input class="control-color-input" type="color"
                     onchange="onChangeFillColor(value)"/><img
                     src="icons/paint-board-and-brush.png"></button>
-
+            <button class="control-btn download-btn"><a href="#" onclick="onDownloadMeme(this)">Download</a></button>
         </div>
     </div>
 

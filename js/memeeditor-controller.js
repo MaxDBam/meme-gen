@@ -273,3 +273,12 @@ function moveText(ev) {
         gCurrPosY = offsetY;;
     }
 }
+
+
+function onDownloadMeme(elLink) {
+    gNoFocus = true;
+    renderCanvas();
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
+    elLink.download = 'image';
+}

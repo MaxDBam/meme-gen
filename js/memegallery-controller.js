@@ -33,8 +33,6 @@ function onRenderCanvas(imgId) {
     gFirstLoad = true
     document.querySelector('.canvas-container').style.display = "flex"
     document.querySelector('.gallery-container').style.display = "none"
-    document.querySelector('.meme-container').style.display = "none"
-
 }
 
 function onGetGalleryPage() {
