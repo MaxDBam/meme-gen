@@ -57,7 +57,6 @@ ul {
 
 li {
     list-style: none;
-    margin: 20px;
     color: #ffffff;
     font-size: 1.1875rem;
 }
@@ -82,8 +81,8 @@ li.active {
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    grid-gap: 20px;
+    grid-template-columns: repeat(4, 240px);
+    grid-gap: 1.3125rem;
     justify-content: center;
     align-content: center;
     padding: 40px 0;
@@ -98,13 +97,6 @@ li.active {
 .gallery-container img:hover {
     opacity: 0.85;
     border: 1px solid white;
-}
-
-
-/* Memes */
-
-.side-container {
-    background-color: #e3e3e3;
 }
 
 
@@ -209,29 +201,72 @@ canvas {
     text-align: center;
 }
 
+
+/* Footer */
+
+.footer-container {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7f00;
+    color: #ffffff;
+    height: 12.9375rem;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 1.1875rem;
+}
+
+p {
+    font-family: Montserrat;
+    margin-block-start: 1rem;
+    font-weight: 100;
+}
+
+@media (max-width: 1050px) {
+    /* Gallery */
+    .gallery-container img {
+        width: 240px;
+    }
+    .gallery-container {
+        grid-template-columns: repeat(3, 240px);
+        grid-gap: 0.5rem;
+        padding: 40px 0;
+    }
+}
+
+@media (min-width: 921px) {
+    .canvas-container {
+        height: 100vh;
+    }
+}
+
 @media (max-width: 920px) {
     /* Canvas */
     .canvas-container {
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        /* align-items: center;
+        justify-content: space-between; */
+        padding-top: 0.5625rem;
     }
     /* Meme Control */
     .meme-control {
         margin: 0 auto;
-        margin-top: 20px;
-        height: 450px;
+        margin-top: 0.3125rem;
+        height: 330px;
         width: 380px;
+        grid-gap: 5px;
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 768px) {
     .container {
         padding: 0 15px;
     }
     /* Meme Control */
     .canvas-container {
-        padding: 40px 0;
+        padding: 0.625rem 0;
     }
     .control-btn {
         justify-self: center;
@@ -241,27 +276,33 @@ canvas {
         width: 140px;
     }
     .gallery-container {
-        grid-template-columns: repeat(auto-fill, 140px);
-        grid-gap: 10px;
+        grid-template-columns: repeat(2, 140px);
+        grid-gap: 0.25rem;
         padding: 40px 0;
     }
     /* Nav */
     .nav {
-        display: none;
         flex-direction: column;
         justify-content: space-evenly;
-        position: absolute;
         z-index: 3;
         right: 0;
-        top: 50px;
         background-color: #ff7f00;
-        width: 100vw;
-        height: 40vh;
-        border-top: 1px dashed #040a2c;
         box-shadow: -9px 16px 22px -12px rgba(0, 0, 0, 0.75);
         padding-left: 50px;
     }
     li {
         margin: 0;
+    }
+}
+
+@media (max-width: 305px) {
+    /* Gallery */
+    .gallery-container img {
+        width: 240px;
+    }
+    .gallery-container {
+        grid-template-columns: repeat(1, 240px);
+        grid-gap: 0.25rem;
+        padding: 0.625rem 0;
     }
 }
