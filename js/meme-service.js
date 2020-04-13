@@ -114,8 +114,6 @@ function getMeme() {
 }
 
 
-
-
 function getImges() {
     return gImgs;
 }

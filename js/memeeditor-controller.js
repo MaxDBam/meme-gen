@@ -50,7 +50,7 @@ function drawLocalImg() {
 }
 
 function drawImg() {
-    var imgId = getSelectedImg()
+    var imgId = getSelectedImg();
     var elImg = document.querySelector(`#img-num-${imgId}`);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 }
@@ -203,7 +203,7 @@ function dragText(ev) {
             return;
         }
         idx++;
-    })
+    });
 
     gCurrPosX = offsetX;
     gCurrPosY = offsetY;
@@ -227,7 +227,7 @@ function dropText(ev) {
                 return;
             }
             idx++;
-        })
+        });
     }
 
     gCurrPosX = undefined;
@@ -264,7 +264,7 @@ function moveText(ev) {
                     changePositionX(disX);
                     changePositionY(disY);
                 }
-            })
+            });
         }
 
         renderCanvas()
