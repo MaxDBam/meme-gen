@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Meme Gen</title>
+</head>
+<body onload="onInit()">
+    <h1></h1>
+
+    <div class="canvas-container">
+        <canvas class="meme-canvas" width="810" height="700"></canvas>
+        <input type="text" name="txt" placeholder="Enter your text" oninput="onEnterTxt(this.value)" ">
+    </div>
+    <section class="img-gallery">
+        <!-- <img src="./img/2.jpg" alt="" class="img-item">
+        <img src="./img/003.jpg" alt="" class="img-item"> -->
+    </section>
+    <script src="js/meme-controller.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/storage-service.js"></script>
+</body>
+</html>
