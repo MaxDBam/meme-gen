@@ -2,22 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preload" as="font" href="/fonts/montserrat.ttf" type="font/ttf" crossorigin="anonymous">
+   <link rel="preload" as="font" href="/fonts/pacifico.ttf" type="font/ttf" crossorigin="anonymous">
+   <link rel="preload" as="font" href="/fonts/sacramento.ttf" type="font/ttf" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/style.css">
     <title>Meme Gen</title>
 </head>
 <body onload="onInit()">
-    <h1></h1>
-
-    <div class="canvas-container">
-        <canvas class="meme-canvas" width="810" height="700"></canvas>
-        <input type="text" name="txt" placeholder="Enter your text" oninput="onEnterTxt(this.value)" ">
-    </div>
-    <section class="img-gallery">
-        <!-- <img src="./img/2.jpg" alt="" class="img-item">
-        <img src="./img/003.jpg" alt="" class="img-item"> -->
+    <section class="screen" onclick="onToggleMenu()"></section>
+    <section class="head"> 
+        <header class="head-container flex space-between align-center">
+            <h1 class="logo">memegen</h1>
+            <nav class="main-nav flex align-center justify-center">
+                <a class="flex align-center justify-center active" href="">Gallery</a><span>|</span>
+                <!-- <a class="flex align-center justify-center" href="">Memes</a><span>|</span> -->
+                <a class="flex align-center justify-center about-link" href="#" onclick="onToAboutPage()">About</a>
+            </nav>
+            <button class="btn-menu" onclick="onToggleMenu()">☰</button>
+        </header>
     </section>
+    <section class="search-filter-container container flex space-around">
+        <div class="search-keywords flex align-center">
+            <form action="" class="">
+                <input class="search-keyword" type="search" list="keyword-col" name="" autocomplete="on" placeholder="Enter a search keyword" onkeyup="onSearch(this.value)">
+                <datalist id="keyword-col">
+                    <option value="ANIMAL">
+                    <option value="cat">
+                    <option value="cartoon">
+                    <option value="cute">
+                    <option value="dog">
+                    <option value="funny">
+                    <option value="happy">
+                    <option value="men">
+                    <option value="movie">
+                    <option value="president">
+                    <option value="smile">
+                    <option value="sports">
+                    <option value="woman">
+                </datalist>
+            </form>
+        </div>
+        <div class="keywords-container flex flex-wrap">
+
+        </div>
+    </section>
+    <main>
+        <div class="canvas-container container">
+            <canvas class="meme-canvas" width="540" height="550" onclick="onClickLineOnACanvas(event)" onmousedown="onClickLineOnACanvas(event)"
+            onmousemove="onDragLineOnACanvas(event)" onmouseup="onMouseUpOnCanvas(event)"></canvas>
+            <div class="meme-editor">
+                <input class="meme-txt" type="text" name="txt" placeholder="Enter your text" oninput="onEnterTxt(this.value)" ">
+                <button class="btn-lower-txt" onclick="onRaiseOrLowerTxtOnImg(1)"><img class="editor-icon" src="./icons/arrowdown.png" alt=""></button>
+                <button class="btn-raise-txt" onclick="onRaiseOrLowerTxtOnImg(-1)"><img class="editor-icon" src="./icons/arrowup.png" alt=""></button>
+                <button class="btn-switchlines" onclick="onSwitchBetweenTxtLines()"><img class="editor-icon" src="./icons/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                <button class="btn-addline" onclick="onAddTxtLine()"><img class="editor-icon" src="./icons/add.png" alt=""></button>
+                <button class="btn-deleteline" onclick="onRemoveTxtLine()"><img class="editor-icon" src="./icons/trash.png" alt=""></button>
+                <button class="btn-increase-font" onclick="onIncOrDecTxtFontSize(1)"><img class="editor-icon" src="./icons/increase font - icon.png" alt=""></button>
+                <button class="btn-decrease-font" onclick="onIncOrDecTxtFontSize(-1)"><img class="editor-icon" src="./icons/decrease font - icon.png" alt=""></button>
+                <button class="btn-align-left" onclick="onAlignTxtToLeft()"><img class="editor-icon" src="./icons/align-to-left.png" alt=""></button>
+                <button class="btn-align-center" onclick="onAlignTxtToCenter()"><img class="editor-icon" src="./icons/center-text-alignment.png" alt=""></button>
+                <button class="btn-align-right" onclick="onAlignTxtToRight()"><img class="editor-icon" src="./icons/align-to-right.png" alt=""></button>
+                <select class="select-font" name="" id="" onchange="onSetTxtFont(this.value)">
+                    <option value="impact">Impact</option>
+                    <option value="montserrat">Montserrat</option>
+                    <option value="pacifico">Pacifico</option>
+                    <option value="sacramento">Sacramento</option>
+                </select>
+                <label class="stroke">
+                    <img class="editor-icon" src="./icons/text stroke.png" alt="">
+                    <input type="color" name="stroke-color" class="btn-change-stroke" onchange="onChangeStrokeColor(this.value)">
+                </label>
+                <label class="fill">
+                    <img class="editor-icon" src="./icons/paint-board-and-brush.png" alt="">
+                    <input type="color" name="fill-color" class="btn-change-fill" onchange="onChangeFillStyleColor(this.value)">
+                </label>
+                <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button type="submit">Share</button>
+                    <div class="share-container"></div>
+                </form>
+                <a href="#" class="download flex justify-center align-center" onclick="onDownloadCanvas(this)" download="img.jpg">Download</a>
+
+            </div>
+        </div>
+        <section class="img-gallery flex justify-center align-center container">
+            <!-- <img src="./img/2.jpg" alt="" class="img-item">
+            <img src="./img/003.jpg" alt="" class="img-item"> -->
+        </section>
+    </main>
+    <section class="about flex align-center about-container">
+        <img src="./img/ross1.jpg" alt="">
+        <div class="about-details">
+            <h1>Ross Geller</h1>
+            <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends (1994–2004).</p>
+        </div>
+    </section>
+    <footer class="flex column justify-center align-center">
+        <h1 class="logo">memegen</h1>
+        <p>All rights reserved 2021</p>
+    </footer>
     <script src="js/meme-controller.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/storage-service.js"></script>

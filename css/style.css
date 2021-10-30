@@ -1,11 +1,380 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Font Family */
+
+@font-face {
+    font-family: 'impact';
+    src: local('impact') url(/fonts/impact.ttf);
+}
+
+@font-face {
+    font-family: 'montserrat';
+    src: local('monserrat'), url(/fonts/montserrat.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'pacifico';
+    src: local('pacifico'), url(/fonts/pacifico.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'sacramento';
+    src: url(/fonts/sacramento.ttf);
+}
+
+/* Basics */
+
 body {
+    margin: 0;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
+span {
+    width: 2px;
+    color: white;
+    margin: auto 0.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #040A2C;
+}
+
+button {
+    cursor: pointer;
+}
+
+input {
+    align-self: center;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+.active {
+    color: #040A2C;
+    box-shadow: inset 0 -5px #040A2C;
+}
+
+/* Helpers */
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+/* Layout */
+
+.container {
+    max-width: 1182px;
+}
+
+.head-container {
+    max-width: 1182px;
+}
+
+/* Components */
+
+.menu-open .screen {
+    visibility: visible;
+    opacity: 1;
+}
+
+.head {
+    background-color: chocolate;
+    /* margin-block-end: 24px; */
+}
+
+header {
+    margin: auto;
+}
+
+.logo {
+    margin-block: 0;
+    font-size: 1.8rem;
+    font-family: impact, sans-serif;
+    color: white;
+}
+
+nav a {
+    font-size: 1rem;
+    font-family: Montserrat;
+    height: 66px;
+    width: 80px;
+    color: white;
+}
+
+nav a:hover {
+    color: #040A2C;
+    box-shadow: inset 0 -5px #040A2C;
+}
+
+.search-filter-container {
+    height: 100px;
+    margin: auto;
+    width: 100%;
+}
+
+.search-filter-container-more {
+    height: 127px;
+    margin: auto;
+    width: 100%;
+}
+
+.search-keywords {
+    margin: 40px auto 40px 0;
+}
+
+.search-keyword {
+    width: 262px;
+    height: 27px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.keywords-container > button:hover {
+    color: chocolate;
+    padding: 0 6px;
+}
+
+.keywords-container {
+    width: 49%;
+    margin: auto 0;
+}
+
+.btn-keyword {
+    background-color: #ffffff;
+    border: none;
+}
+
+.btn-more {
+    background-color: #ffffff;
+    border: none;
+    text-decoration: underline;
+}
+
+.btn-less {
+    background-color: #ffffff;
+    border: none;
+    text-decoration: underline;
+}
+
+
+/* Main Content */
+
+.canvas-container {
+    margin: 24px auto 24px auto;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+}
+
 .meme-canvas {
     border: 1px black solid;
+    margin-inline-end: 100px;
+}
+
+.meme-editor {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-template-areas:
+    "text text text text text"
+    "lower raise switch addline deleteline"
+    "higherfont lowerfont alignleft aligncenter alignright"
+    "font font font strokecolor fillcolor"
+    "share share share download download"
+    ;
+    gap: 18px;
+} 
+
+.meme-editor > button {
+    padding: 0;
+    border-radius: 0.3rem;
+    background-color: #ffffff;
+    border-style: none;
+    height: 60px;
+    width: 60px;
+}
+
+.meme-editor button img {
+    height: 40px;
+    width: 40px;
+}
+
+.meme-txt {
+    grid-area: text;
+    height: 60px;
+    border-radius: 1rem;
+    text-align: center;
+    border: none;
+}
+
+.btn-raise-txt {
+    grid-area: raise;
+}
+
+.btn-lower-txt {
+    grid-area: lower;
+}
+
+.btn-switchlines {
+    grid-area: switch;
+}
+
+.btn-addline {
+    grid-area: addline;
+}
+
+.btn-deleteline {
+    grid-area: deleteline;
+}
+
+.btn-increase-font {
+    grid-area: higherfont;
+}
+
+.btn-decrease-font {
+    grid-area: lowerfont;
+}
+
+.btn-align-left {
+    grid-area: alignleft;
+}
+
+.btn-align-center {
+    grid-area: aligncenter;
+}
+
+.btn-align-right {
+    grid-area: alignright;
+}
+
+.select-font{
+    grid-area: font;
+    border: none;
+    border-radius: 1rem;
+    background-color: #ffffff;
+}
+
+.select-font:focus-visible {
+    outline: none;
+}
+
+.stroke {
+    grid-area: strokecolor;
+}
+
+.fill {
+    grid-area: fillcolor;
+}
+
+form button {
+    grid-area: share;
+    height: 60px;
+    width: 138px;
+    padding: 0;
+    border-radius: 1rem;
+    background-color: chocolate;
+    color: #ffffff;
+    font-family: 'montserrat';
+    border-style: none;
+}
+
+form button:hover {
+    color: black;
+}
+
+.download {
+    grid-area: download;
+    border-radius: 1rem;
+    color: #ffffff;
+    font-family: 'montserrat';
+    background-color: chocolate;
+    border-style: none;
+    height: 60px;
+}
+
+.label img {
+    width: 40px;
+    height: 40px;
+}
+
+label {
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff;
+    border-radius: 1rem;
+}
+
+label img {
+    width: 40px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+input[type='color'] {
+    opacity: 0;
+    position: relative;
+    bottom: 60px;
+    width: 0;
+    height: 0;
+    cursor: pointer;
+}
+
+main {
+    background-color: #e3e3e3;
+}
+
+.img-gallery {
+    /* background-color: #e3e3e3; */
+    flex-wrap: wrap;
+    margin: 28px auto auto;
+}
+
+.img-item {
+    width: 220px;
+    margin-block-end: 25px;
+    margin-inline-end: 20px;
+}
+
+.img-item:nth-of-type(5n + 0) {
+    margin-inline-end: 0;
 }
 
 .img-item:hover {
@@ -13,6 +382,392 @@ body {
     opacity: 0.9;
 }
 
-input {
-    align-self: center;
+.about {
+    display: none;
+    margin: auto;
+    height: 69.4vh;
+}
+
+.about-container {
+    max-width: 940px;
+}
+
+.about img {
+    width: 323px;
+    height: 323px;
+    border-radius: 12rem;
+    margin-inline-end: 40px;
+}
+
+.about h1 {
+    font-family: 'montserrat';
+    font-size: 1.5625rem;
+    font-weight: bold;
+}
+
+.about p {
+    font-family: 'montserrat';
+    font-size: 1.5rem;
+}
+
+.btn-menu {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+footer {
+    padding: 4rem;
+    background-color: chocolate;
+    color: white;
+}
+
+/* Medua Queries */
+
+@media (max-width: 1200px) {
+    .head-container {
+        max-width: 980px;
+    }
+
+    .container {
+        max-width: 980px;
+    }
+
+    .search-filter-container-more {
+        height: 140px;
+        width: 100%;
+    }
+
+    .keywords-container {
+        width: 59%;
+    }
+
+    .img-item:nth-of-type(5n + 0) {
+        margin-inline-end: 20px;
+    }
+
+    .img-item:nth-of-type(4n + 0) {
+        margin-inline-end: 0;
+    }
+
+    .meme-canvas {
+        margin-inline-end: 50px;
+    }
+
+}
+
+@media (max-width: 980px) {
+    html {
+        font-size: 14px;
+    }
+
+    .head-container {
+        max-width: 720px;
+    }
+
+    .container {
+        max-width: 720px;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .search-filter-container-more {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 140px;
+    }
+
+    .search-keywords {
+        margin: 10px auto 24px auto;
+    }
+
+    .keywords-container {
+        margin: 0 auto 16px auto;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-keyword {
+        line-height: 0.8;
+    }
+
+    .img-item {
+        margin-inline-end: 0;
+    }
+
+    .img-item:nth-of-type(5n + 0) {
+        margin-inline-end: 0;
+    }
+
+    .img-item:nth-of-type(3n + 1) {
+        margin-inline-start: 20px;
+        margin-inline-end: 10px;
+    }    
+
+    .img-item:nth-of-type(3n + 0) {
+        margin-inline-end: 20px;
+        margin-inline-start: 10px;
+    }
+
+
+    .img-item:last-child {
+        margin-inline-end: 0;
+        margin-inline-start: 0;
+    }
+
+    .canvas-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .meme-canvas {
+        margin-inline-end: 0;
+    }
+
+    .meme-editor {
+        margin-block-start: 5px;
+    }
+
+    .about {
+        flex-direction: column;
+        justify-content: center;
+        margin: auto;
+        height: 72.4vh;
+    }
+
+    .about img {
+        margin-inline-end: 0;
+    }
+
+    .about-details {
+        text-align: center;
+    }
+
+}
+
+@media (max-width: 740px) {
+    .head-container {
+        max-width: 520px;
+    }
+
+    .container {
+        max-width: 520px;
+    }
+
+    .search-filter-container-more {
+        height: 145px;
+    }
+
+    .img-item:nth-of-type(3n + 1) {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }  
+
+    .img-item:nth-of-type(3n + 0) {
+        margin-inline-end: 0;
+        margin-inline-start: 0;
+    }
+
+    .img-item:nth-of-type(odd) {
+        margin-inline-start: 20px;
+        margin-inline-end: 10px;
+    }
+
+
+    .img-item:nth-of-type(even) {
+        margin-inline-end: 20px;
+    }
+
+    .img-item:last-child {
+        margin-inline-end: 0;
+        margin-inline-start: 0;
+    }
+    
+}
+
+@media (max-width: 560px) {
+    .head {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 66px;
+    }
+
+    .head-container {
+        width: 100%;
+    }
+
+    header {
+        height: 66px;
+    }
+
+    header h1 {
+        padding-inline-start: 1rem;
+    }
+
+    header a {
+        padding-inline-start: 1rem;
+    }
+
+    header button {
+        padding-inline-end: 1rem;
+    }
+
+    .main-nav {
+        position: absolute;
+        display: none;
+        top: 66px;
+        width: inherit;
+    }
+
+    span {
+        display: none;
+    }
+
+    .main-nav a {
+        background-color: chocolate;
+        justify-content: flex-start;
+        width: auto;
+        /* height: 66px; */
+    }
+
+    .main-nav a:hover {
+        box-shadow: none;
+    }
+
+    .display-menu {
+        display: block;
+    }
+
+    .btn-menu {
+        display: block;
+        color: #ffffff;
+        border: none;
+        background-color: chocolate;
+        font-size: 1.8rem;
+    }
+
+    .close-menu {
+        display: block;
+        color: #ffffff;
+        border: none;
+        background-color: chocolate;
+        font-size: 1.6rem;
+    }
+
+    .btn-menu:hover {
+        color: #040A2C;
+    }
+
+    .close-menu:hover {
+        color: #040A2C;
+    }
+
+    .active {
+        box-shadow: none;
+    }
+
+    .search-filter-container {
+        margin-block-start: 70px;
+        height: 130px;
+    }
+
+    .search-filter-container-more {
+        margin-block-start: 70px;
+        justify-content: flex-start;
+        height: 170px;
+    }
+
+    .container {
+        max-width: 350px;
+    }
+    
+    .img-item {
+        width: 350px;
+    }
+
+    .img-item:nth-of-type(odd) {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+
+    .img-item:nth-of-type(even) {
+        margin-inline-end: 0;
+    }
+
+    .canvas-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        margin-block-start: 80px;
+    }
+
+    .meme-editor {    
+        gap: 25px;
+        grid-template-columns: repeat(5, 46px);
+    }
+
+    .meme-txt {
+        height: 40px;
+    }
+
+    .meme-editor > button {
+        border-radius: 0.3rem;
+        height: 40px;
+        width: 45px;
+    }
+
+    .meme-editor button img {
+        height: 26px;
+        width: 26px;
+    }
+
+    label {
+        height: 40px;
+        width: 45px;
+        border-radius: 0.3rem;
+    }
+
+    label img {
+        width: 35px;
+        height: 31px;
+        margin: 4px 5px;
+    }
+
+    input[type='color'] {
+        bottom: 40px;
+    }
+
+    form button {
+        height: 40px;
+        width: 118px;
+        border-radius: 1rem;
+
+    }
+
+    .download {
+        height: 40px;
+    }
+
+    .about {
+        margin: 250px auto 250px auto;
+    };
 }
