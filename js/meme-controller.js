@@ -403,16 +403,18 @@ function onToggleMenu() {
 }
 
 function onToAboutPage() {
-    var activePages = document.getElementsByClassName('active');
-    let aboutPageEl = document.querySelector('.about-link');
+    const activePages = document.getElementsByClassName('active');
+    const aboutPageEl = document.querySelector('.about-link');
+    var elNav = document.querySelector('nav');
     activePages[0].classList.remove('active');
     aboutPageEl.classList.add('active');
     document.querySelector('main').style.display = 'none';
     if (gOnMore) {
         document.querySelector('.search-filter-container-more').style.display = 'none';
     } else document.querySelector('.search-filter-container').style.display = 'none';
-
-    onToggleMenu();
+    if (elNav.classList.contains('display-menu')) {
+        onToggleMenu();
+    }
     document.querySelector('.about').style.display = 'flex';
 }
 
