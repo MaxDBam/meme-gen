@@ -11,17 +11,17 @@
 
 @font-face {
     font-family: 'montserrat';
-    src: local('montserrat'), url(./fonts/montserrat.ttf) format('truetype');
+    src: local('montserrat'), url(../fonts/montserrat.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'pacifico';
-    src: local('pacifico'), url(./fonts/pacifico.ttf) format('truetype');
+    src: local('pacifico'), url(../fonts/pacifico.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'sacramento';
-    src: url(./fonts/sacramento.ttf);
+    src: url(../fonts/sacramento.ttf);
 }
 
 /* Basics */
