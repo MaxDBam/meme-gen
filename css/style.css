@@ -6,17 +6,17 @@
 
 @font-face {
     font-family: 'impact';
-    src: local('impact') url(./fonts/impact.ttf);
+    src: local('impact') url(/fonts/impact.ttf);
 }
 
 @font-face {
     font-family: 'montserrat';
-    src: local('monserrat'), url(./fonts/montserrat.ttf) format('truetype');
+    src: local('monserrat'), url(/fonts/montserrat.ttf) format('truetype');
 }
 
 @font-face {
     font-family: 'pacifico';
-    src: local('pacifico'), url(./fonts/pacifico.ttf) format('truetype');
+    src: local('pacifico'), url(/fonts/pacifico.ttf) format('truetype');
 }
 
 @font-face {
@@ -309,6 +309,7 @@ form button {
     height: 60px;
     width: 138px;
     padding: 0;
+    font-size: 1rem;
     border-radius: 1rem;
     background-color: chocolate;
     color: #ffffff;
