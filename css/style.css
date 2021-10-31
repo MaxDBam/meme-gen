@@ -578,8 +578,8 @@ footer {
     .about {
         flex-direction: column;
         justify-content: center;
-        margin: auto;
-        height: 72.4vh;
+        margin: 150px auto;
+/*         height: 72.4vh; */
     }
 
     .about img {
