@@ -306,7 +306,8 @@ nav a:hover {
 
 .meme-editor form {
     grid-area: share;
-
+}
+    
 form button {
     height: 60px;
     width: 138px;
