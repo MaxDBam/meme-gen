@@ -215,10 +215,10 @@ nav a:hover {
     grid-template-columns: repeat(5, 60px);
     grid-template-areas:
     "text text text text text"
-    "lower raise switch addline deleteline"
+    ". switch addline deleteline ."
     "higherfont lowerfont alignleft aligncenter alignright"
     "font font font strokecolor fillcolor"
-    "share share share download download"
+    "share share . download download"
     ;
     gap: 18px;
 } 
@@ -304,8 +304,10 @@ nav a:hover {
     grid-area: fillcolor;
 }
 
-form button {
+.meme-editor form {
     grid-area: share;
+
+form button {
     height: 60px;
     width: 138px;
     padding: 0;
